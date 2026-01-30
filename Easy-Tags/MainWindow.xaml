@@ -1,0 +1,36 @@
+﻿<Window x:Class="Easy_Tags.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Easy_Tags"
+        mc:Ignorable="d"
+        Title="Easy-Tags" Height="500" Width="500">
+    <Grid>
+        <Canvas Width="500" Height="500" Background="AntiqueWhite">
+            <Label Content="Job Number" Canvas.Left="100" Canvas.Top="75" />
+            <TextBox x:Name="JobNumber" Canvas.Left="100" Canvas.Top="100" Height="35" Width="100" />
+            <Label Content="Description (0-40 chars)" Canvas.Left="300" Canvas.Top="75" />
+            <TextBox x:Name="Description" Canvas.Left="300" Canvas.Top="100" Height="35" Width="100" />
+            <Label Content="Start Tag" Canvas.Left="100" Canvas.Top="150" />
+            <TextBox x:Name="StartTag" Canvas.Left="100" Canvas.Top="175" Height="35" Width="75" />
+            <Label Content="End Tag" Canvas.Left="200" Canvas.Top="150" />
+            <TextBox x:Name="EndTag" Canvas.Left="200" Canvas.Top="175" Height="35" Width="75" />
+            <Label Content="Include End Tag #" Canvas.Left="315" Canvas.Top="168" />
+            <CheckBox x:Name="IncludeEnd" Canvas.Left="300" Canvas.Top="175" />
+            <Label Content="Reverse Print Order" Canvas.Left="315" Canvas.Top="190" />
+            <CheckBox x:Name="ReversePrint" Canvas.Left="300" Canvas.Top="197" />
+            <Button Content="Print Labels" Canvas.Left="140" Canvas.Top="250" Height="35" Width="100" Click="Button_Click" />
+            <Button Content="Select Printer" Canvas.Left="260" Canvas.Top="250" Height="35" Width="100" Click="Button_Click_1" />
+            <Label Content="Current Printer:" Canvas.Left="200" Canvas.Top="280" />
+            <Label Content="" Canvas.Left="200" Canvas.Top="295" Name="PrinterName" />
+            <Border BorderThickness="2" BorderBrush="SteelBlue" Canvas.Left="100" Canvas.Top="350">
+                <Image Width="300" >
+                    <Image.Source>
+                        <BitmapImage DecodePixelWidth="300" UriSource="/Images/ZG_Logo.png" />
+                    </Image.Source>
+                </Image>
+            </Border>
+        </Canvas>
+    </Grid>
+</Window>
