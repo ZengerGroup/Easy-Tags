@@ -53,33 +53,72 @@ namespace Easy_Tags
                 {
                     if ((bool)ReversePrint.IsChecked)
                     {
-                        for (int i = endTag; i >= startTag; i--)
+                        if (TargetPrinter.Contains("ZDesigner"))
                         {
-                            counts = ((bool)IncludeEnd.IsChecked) ? String.Format("{0}/{1}", i.ToString("D3"), endTag.ToString("D3")) : i.ToString("D3");
-                            stream = RawPrinterHelper.GetTrayTag(counts, job, description);
-                            if (!RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream))
+                            for (int i = endTag; i >= startTag; i--)
                             {
-                                MessageBox.Show("Error communicating with printer.");
-                                break;
+                                counts = ((bool)IncludeEnd.IsChecked) ? String.Format("{0}/{1}", i.ToString("D3"), endTag.ToString("D3")) : i.ToString("D3");
+                                stream = ZebraPrinterHelper.GetTrayTag(counts, job, description);
+                                if (!ZebraPrinterHelper.SendStringToPrinter(TargetPrinter, stream))
+                                {
+                                    MessageBox.Show("Error communicating with printer.");
+                                    break;
+                                }
                             }
+                            stream = ZebraPrinterHelper.GetBreakTag();
+                            ZebraPrinterHelper.SendStringToPrinter(TargetPrinter, stream);
+                        }
+                        else
+                        {
+                            for (int i = endTag; i >= startTag; i--)
+                            {
+                                counts = ((bool)IncludeEnd.IsChecked) ? String.Format("{0}/{1}", i.ToString("D3"), endTag.ToString("D3")) : i.ToString("D3");
+                                stream = RawPrinterHelper.GetTrayTag(counts, job, description);
+                                if (!RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream))
+                                {
+                                    MessageBox.Show("Error communicating with printer.");
+                                    break;
+                                }
+                            }
+                            stream = RawPrinterHelper.GetBreakTag();
+                            RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream);
                         }
                     }
                     else
                     {
-                        for(int i = startTag; i <= endTag; i++)
+                        if (TargetPrinter.Contains("ZDesigner"))
                         {
-                            counts = ((bool)IncludeEnd.IsChecked) ? String.Format("{0}/{1}", i.ToString("D3"), endTag.ToString("D3")) : i.ToString("D3");
-                            stream = RawPrinterHelper.GetTrayTag(counts, job, description);
-                            if (!RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream))
+                            for(int i = startTag; i <= endTag; i++)
                             {
-                                MessageBox.Show("Error communicating with printer.");
-                                break;
+                                counts = ((bool)IncludeEnd.IsChecked) ? String.Format("{0}/{1}", i.ToString("D3"), endTag.ToString("D3")) : i.ToString("D3");
+                                stream = ZebraPrinterHelper.GetTrayTag(counts, job, description);
+                                if(!ZebraPrinterHelper.SendStringToPrinter(TargetPrinter, stream))
+                                {
+                                    MessageBox.Show("Error communicating with printer.");
+                                    break;
+                                }
                             }
+                            stream = ZebraPrinterHelper.GetBreakTag();
+                            ZebraPrinterHelper.SendStringToPrinter(TargetPrinter, stream);
+                        }
+                        else
+                        {
+                            for(int i = startTag; i <= endTag; i++)
+                            {
+                                counts = ((bool)IncludeEnd.IsChecked) ? String.Format("{0}/{1}", i.ToString("D3"), endTag.ToString("D3")) : i.ToString("D3");
+                                stream = RawPrinterHelper.GetTrayTag(counts, job, description);
+                                if (!RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream))
+                                {
+                                    MessageBox.Show("Error communicating with printer.");
+                                    break;
+                                }
+                            }
+                            stream = RawPrinterHelper.GetBreakTag();
+                            RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream);
                         }
                     }
 
-                    stream = RawPrinterHelper.GetBreakTag();
-                    RawPrinterHelper.SendStringToPrinter(TargetPrinter, stream);
+
                 }
                 else
                 {
