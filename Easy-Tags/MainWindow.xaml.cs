@@ -49,7 +49,7 @@ namespace Easy_Tags
             else description = Description.Text;
             if (Int32.TryParse(StartTag.Text, out startTag) && Int32.TryParse(EndTag.Text, out endTag))
             {
-                if(description.Length <= 40)
+                if(description.Length <= 30)
                 {
                     if ((bool)ReversePrint.IsChecked)
                     {

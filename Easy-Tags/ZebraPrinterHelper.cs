@@ -70,11 +70,11 @@ namespace Easy_Tags
         }
         public static string GetTrayTag(string counts, string job, string description)
         {
-            return String.Format("^XA^FO250,125^A0N,50,50^FB300,1,0,C^FD{0}^FS^FO150,200^A0N,150,150^FB600,1,0,C^FD{1}^FS^FO250,325^A0N,50,50^FB300,1,0,C^FD{2}^FS^XZ", description, counts, job);
+            return String.Format("^XA^FO0,125^A0N,50,50^FB600,1,0,C^FD{0}^FS^FO50,200^A0N,150,150^FB600,1,0,C^FD{1}^FS^FO150,325^A0N,50,50^FB300,1,0,C^FD{2}^FS^XZ", description, counts, job);
         }
         public static string GetBreakTag()
         {
-            return "^XA^FO100,200^A0N,100,100^FB600,1,0,C^FD****END****^FS^XZ";
+            return "^XA^FO50,200^A0N,100,100^FB600,1,0,C^FD****END****^FS^XZ";
         }
 
     }

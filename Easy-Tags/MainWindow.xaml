@@ -10,7 +10,7 @@
         <Canvas Width="500" Height="500" Background="AntiqueWhite">
             <Label Content="Job Number" Canvas.Left="100" Canvas.Top="75" />
             <TextBox x:Name="JobNumber" Canvas.Left="100" Canvas.Top="100" Height="35" Width="100" />
-            <Label Content="Description (0-40 chars)" Canvas.Left="300" Canvas.Top="75" />
+            <Label Content="Description (0-30 chars)" Canvas.Left="300" Canvas.Top="75" />
             <TextBox x:Name="Description" Canvas.Left="300" Canvas.Top="100" Height="35" Width="100" />
             <Label Content="Start Tag" Canvas.Left="100" Canvas.Top="150" />
             <TextBox x:Name="StartTag" Canvas.Left="100" Canvas.Top="175" Height="35" Width="75" />
